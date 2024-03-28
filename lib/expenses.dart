@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/models/expense.dart';
-import 'package:expense_tracker/expenses_list.dart';
+import 'package:expense_tracker/widgets/expenses_list.dart';
 
 final List<Expense> expenses = [
   Expense(
@@ -41,7 +41,7 @@ class _ExpensesState extends State<Expenses> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Expense tracker'),
+        title: const Text('Expense tracker'),
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
