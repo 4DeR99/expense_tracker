@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/models/expense.dart';
 import 'package:expense_tracker/widgets/expenses_list.dart';
+import 'package:expense_tracker/widgets/new_expense.dart';
 
 final List<Expense> expenses = [
   Expense(
     title: 'Food',
     amount: 20.00,
     date: DateTime.now(),
-    type: ExpenseType.food,
+    type: Category.food,
   ),
   Expense(
     title: 'Travel',
     amount: 40.00,
     date: DateTime.now(),
-    type: ExpenseType.travel,
+    type: Category.travel,
   ),
   Expense(
     title: 'Leisure',
     amount: 60.00,
     date: DateTime.now(),
-    type: ExpenseType.leisure,
+    type: Category.leisure,
   ),
   Expense(
     title: 'Work',
     amount: 80.00,
     date: DateTime.now(),
-    type: ExpenseType.work,
+    type: Category.work,
   ),
 ];
 
@@ -37,6 +38,24 @@ class Expenses extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expenses> {
+  void addExpense(Expense expense) {
+    print("Adding expense");
+    setState(() {
+      expenses.add(expense);
+    });
+  }
+
+  void _openAddExpenseOverlay() {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) {
+        return NewExpense(
+          onAddExpense: addExpense,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +64,7 @@ class _ExpensesState extends State<Expenses> {
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: () {},
+            onPressed: _openAddExpenseOverlay,
           ),
         ],
       ),

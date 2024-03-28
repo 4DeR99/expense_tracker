@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 
 final formatter = DateFormat('dd/MM/yyyy');
 
-enum ExpenseType {
+enum Category {
   food,
   travel,
   leisure,
@@ -12,10 +12,10 @@ enum ExpenseType {
 }
 
 const icons = {
-  ExpenseType.food: Icons.lunch_dining,
-  ExpenseType.travel: Icons.flight,
-  ExpenseType.leisure: Icons.movie,
-  ExpenseType.work: Icons.work,
+  Category.food: Icons.lunch_dining,
+  Category.travel: Icons.flight,
+  Category.leisure: Icons.movie,
+  Category.work: Icons.work,
 };
 
 class Expense {
@@ -30,7 +30,7 @@ class Expense {
   final String title;
   final double amount;
   final DateTime date;
-  final ExpenseType type;
+  final Category type;
 
   String get formattedDate => formatter.format(date);
 }
