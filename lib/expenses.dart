@@ -39,7 +39,6 @@ class Expenses extends StatefulWidget {
 
 class _ExpensesState extends State<Expenses> {
   void addExpense(Expense expense) {
-    print("Adding expense");
     setState(() {
       expenses.add(expense);
     });
