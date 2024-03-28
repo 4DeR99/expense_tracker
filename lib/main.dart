@@ -1,23 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:expense_tracker/expenses.dart';
 
 void main() {
   runApp(const MaterialApp(
-    home: ExpenseTracker(),
+    home: Expenses(),
+    debugShowCheckedModeBanner: false,
   ));
-}
-
-class ExpenseTracker extends StatelessWidget {
-  const ExpenseTracker({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Expense Tracker'),
-      ),
-      body: const Center(
-        child: Text('Hello, World!'),
-      ),
-    );
-  }
 }
