@@ -27,8 +27,9 @@ class _NewExpenseState extends State<NewExpense> {
       firstDate: DateTime(2021),
       lastDate: DateTime.now(),
     );
+    if (value == null) return;
     setState(() {
-      _selectedDate = formatter.format(value!);
+      _selectedDate = formatter.format(value);
     });
   }
 
